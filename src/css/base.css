@@ -1,0 +1,5 @@
+/* This is an example of how to import a partial scss file*/
+body {
+  background: radial-gradient(circle, #3f5efb 0%, #fc466b 100%);
+}
+/*# sourceMappingURL=base.css.map */
