@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Rambla:ital,wght@1,700&family=Roboto:wght@300&family=Tinos&display=swap" rel="stylesheet">
     <title>Travel Tracker</title>
   </head>
   <body>
-    <header>
-      <div class="travel-tracker">Travel Tracker</div>
-    </header>
+    <section class="header-wrapper">
+      <h1 class="travel-tracker-title">Travel Tracker</h1>
+      <div class="greet-and-button">
+      </div>
+    </section>
     <main class="bottom-section">
       <aside>
         <div class="greeting-container">
@@ -41,18 +43,11 @@
             <input type="submit" value="Submit" class="submit-btn">
           </div>
         </form>
+        <div class="total-spent-container">
+          <h1>Total Spent This Year</h1>
+        </div>
       </aside>
       <section class ="trips-section">
-        <nav>
-          <div class="button-container">
-            <button class="past-btn">Past Trips</button>
-            <button class="approved-btn">Approved Trips</button>
-            <button class="pending-btn">Pending Trips</button>
-          </div>
-          <div class="total-spent-container">
-            <h1>Total Spent This Year</h1>
-          </div>
-        </nav>
         <div class="grid-container">
           <article class="item item-1">
             <img src= "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1971&q=80" alt="city with people walking in crosswalk and brightly lit shops at night">
@@ -86,6 +81,11 @@
               </div>
             </div>
           </article>
+        </div>
+        <div class="button-container">
+          <button class="past-btn">Past Trips</button>
+          <button class="approved-btn">Approved Trips</button>
+          <button class="pending-btn">Pending Trips</button>
         </div>
       </section> 
     </main> 
