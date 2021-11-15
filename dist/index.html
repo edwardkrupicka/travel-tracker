@@ -1,16 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
-</head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <title>Travel Tracker</title>
+  </head>
+  <body>
+    <header>
+      <div class="travel-tracker">Travel Tracker</div>
+    </header>
+    <main class="bottom-section">
+      <aside>
+        <div class="greeting-container">
+          <h1 class="traveler-greeting">Welcome back Traveler, where are you headed today?</h1>
+        </div>
+        <form class="request-container">
+          <h1 class="request-header">Schedule a new trip</h1>
+          <div class="request-input-container">
+            <label for="destination-selector">Destination</label>
+            <select name="destinations" class="destination-selector" id="destination-selector">
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+            </select>
+            <label for="date-input">Enter Date</label>
+            <input type="date" class="date-input">
+            <label for="">Enter amount of travelers</label>
+            <input type="number" class="traveler-amount" id="quantity" name="quantity" min="1">
+            <input type="submit" value="Submit" class="submit-btn">
+          </div>
+        </form>
+      </aside>
+      <section class ="trips-section">
+        <nav>
+          <div class="button-container">
+            <button class="past-btn">Past Trips</button>
+            <button class="approved-btn">Approved Trips</button>
+            <button class="pending-btn">Pending Trips</button>
+          </div>
+          <div class="total-spent-container">
+            <h1>Total Spent This Year</h1>
+          </div>
+        </nav>
+        <div class="grid-container">
+          <article class="item item-1">
+            <img src= "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1971&q=80" alt="city with people walking in crosswalk and brightly lit shops at night">
+            <div class="destination-information-container">
+              <h1 class="destination-header">Tokyo, Japan</h1>
+              <div class="paragraph-container">
+                <p>
+                  Lodging Cost: 150 / day<br>
+                  Flight Cost: 650 / per person<br>
+                  Start Date: 2022/02/07<br>
+                  Trip Length: 4 days<br>
+                  Travelers: 6<br>
+                  Status: approved<br>
+                </p>
+              </div>
+            </div>
+          </article>
+          <article class="item item-1">
+            <img src= "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1971&q=80" alt="city with people walking in crosswalk and brightly lit shops at night">
+            <div class="destination-information-container">
+              <h1 class="destination-header">Tokyo, Japan</h1>
+              <div class="paragraph-container">
+                <p>
+                  Lodging Cost: 150 / day<br>
+                  Flight Cost: 650 / per person<br>
+                  Start Date: 2022/02/07<br>
+                  Trip Length: 4 days<br>
+                  Travelers: 6<br>
+                  Status: approved<br>
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section> 
+    </main> 
+    <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
+    <script src="bundle.js"></script>
 
-</body>
+  </body>
 </html>
