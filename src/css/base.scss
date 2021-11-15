@@ -109,7 +109,7 @@ label {
 }
 
 .total-spent-container {
-  @include flex(center, center);
+  @include flex(space-evenly, center, column);
   height: 10%;
   width: 80%;
   font-size: 2vw;
@@ -160,7 +160,9 @@ button {
   @include flex(center, center, column);
   grid-column: auto;
   width: 29vw;
+  min-width: 300px;
   height: 58vh;
+  max-height: 450px;
   margin-top: 4%;
   margin-bottom: 2%;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
@@ -187,7 +189,7 @@ img {
   height: 20vh;
   font-size: 1.5vw;
   margin-top: 1vh;
-  font-weight: 900;
+  font-weight: bolder;
 }
 
 .paragraph-container {
@@ -199,4 +201,22 @@ p {
   font-weight: 650;
   margin-bottom: 2vh;
   line-height: 2vw;
+}
+
+.error-modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, .7);
+  width:100vw;
+  height: 100vh;
+  z-index: 2;
+  @include flex(center, center);
+}
+
+.error-message {
+  font-size: 36px;
+  margin: 40px;
+}
+
+.hidden {
+  display: none;
 }

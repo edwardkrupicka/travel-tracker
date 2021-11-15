@@ -10,6 +10,10 @@
     <title>Travel Tracker</title>
   </head>
   <body>
+    <article class="hidden error-modal" id="errorModal">
+      <p class="error-message" id="errorMessage"></p>
+      <button id="errorButton">x</button>
+    </article>
     <section class="header-wrapper">
       <h1 class="travel-tracker-title">Travel Tracker</h1>
       <div class="greet-and-button">
@@ -18,7 +22,7 @@
     <main class="bottom-section">
       <aside>
         <div class="greeting-container">
-          <h1 class="traveler-greeting">Welcome back Traveler, where are you headed today?</h1>
+          <h1 id="travelerGreeting" class="traveler-greeting"></h1>
         </div>
         <form class="request-container">
           <h1 class="request-header">Schedule a new trip</h1>
@@ -45,43 +49,16 @@
         </form>
         <div class="total-spent-container">
           <h1>Total Spent This Year</h1>
+          <h1 id="totalSpent"></h1>
         </div>
       </aside>
       <section class ="trips-section">
-        <div class="grid-container">
-          <article class="item item-1">
-            <img src= "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1971&q=80" alt="city with people walking in crosswalk and brightly lit shops at night">
-            <div class="destination-information-container">
-              <h1 class="destination-header">Tokyo, Japan</h1>
-              <div class="paragraph-container">
-                <p>
-                  Lodging Cost: 150 / day<br>
-                  Flight Cost: 650 / per person<br>
-                  Start Date: 2022/02/07<br>
-                  Trip Length: 4 days<br>
-                  Travelers: 6<br>
-                  Status: approved<br>
-                </p>
-              </div>
-            </div>
-          </article>
-          <article class="item item-1">
-            <img src= "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1971&q=80" alt="city with people walking in crosswalk and brightly lit shops at night">
-            <div class="destination-information-container">
-              <h1 class="destination-header">Tokyo, Japan</h1>
-              <div class="paragraph-container">
-                <p>
-                  Lodging Cost: 150 / day<br>
-                  Flight Cost: 650 / per person<br>
-                  Start Date: 2022/02/07<br>
-                  Trip Length: 4 days<br>
-                  Travelers: 6<br>
-                  Status: approved<br>
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
+        <article id="gridContainerApproved" class="grid-container">
+        </article>
+        <article id="gridContainerPast" class="grid-container hidden">
+        </article>
+        <article id="gridContainerPending" class="grid-container hidden">
+        </article>
         <div class="button-container">
           <button class="past-btn">Past Trips</button>
           <button class="approved-btn">Approved Trips</button>
