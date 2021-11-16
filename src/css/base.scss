@@ -14,12 +14,13 @@ body {
 }
 
 .header-wrapper {
-  @include flex(start, start, column);
+  @include flex(space-between, start, row);
   height: 30%;
   width: 100%;
   background: url('https://i.redd.it/privtmr2u6y71.jpg');
   background-size: cover;
   background-position: bottom;
+  text-align: start;
 }
 
 .travel-tracker-title {
@@ -34,7 +35,6 @@ body {
   margin-top: 2.5%;
 }
 
-
 main {
   @include flex(center, center, row);
   height: 75%;
@@ -46,7 +46,7 @@ main {
 }
 
 aside {
-  @include flex(space-evenly, center, column);
+  @include flex(space-between, center, column);
   height: 100%;
   width: 30%;
   color: $off-white;
@@ -54,7 +54,7 @@ aside {
 
 .greeting-container {
   @include flex(start, start);
-  height: 15%;
+  height: 10%;
   width: 100%;
 }
 
@@ -68,7 +68,7 @@ aside {
 .request-container {
   @include flex(start, center, column);
   margin-top: 1%;
-  height: 40vh;
+  height: 47vh;
   width: 25vw;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
   color: $off-white;
@@ -94,11 +94,13 @@ label {
   height: 2vh;
   width: 20vw;
 }
-
+.estimate-btn,
+.traveler-amount-input,
+.duration-input,
 .destination-selector,
 .date-input,
 .traveler-amount,
-.submit-btn {
+.submit-request-btn {
   background-color: rgba(38, 36, 58, 0.749);
   margin-top: 1vh;
   margin-bottom: 1vh;
@@ -108,11 +110,27 @@ label {
   color: $off-white;
 }
 
-.total-spent-container {
+.request-error {
+  font-size: 1.2vw;
+  text-align: center;
+}
+
+.estimated-cost-container {
   @include flex(space-evenly, center, column);
   height: 10%;
-  width: 80%;
-  font-size: 2vw;
+  width: 100%;
+  border: 2px solid;
+}
+
+.total-spent-container {
+  @include flex(center, center, column);
+  width: 100%;
+  height: 10%;
+  font-size: 1.5vw;
+  text-align: start;
+  font-family: $fontDMSerif;
+  color: $off-white;
+  border: 1px solid white;
 }
 
 .trips-section {
