@@ -30,6 +30,9 @@ const submitRequestBtn = document.querySelector('#submitRequestBtn');
 const estimateBtn = document.querySelector('#estimateBtn');
 const requestError = document.querySelector('#requestError');
 const estimatedCost = document.querySelector('#estimatedCost');
+const usernameInput = document.querySelector('#usernameInput');
+const passwordInput = document.querySelector('#passwordInput');
+const loginBtn = document.querySelector('#loginBtn');
 
 
 // console.log(apiMethods.getAllData());
@@ -41,7 +44,12 @@ submitRequestBtn.addEventListener('click', checkForInput);
 estimateBtn.addEventListener('click', createEstimate);
 
 
+
 // Functions
+
+function validateLogin() {
+  if(usernameInput.value === )
+}
 
 function displayData() {
   apiMethods.getAllData().then(data => {
@@ -134,5 +142,5 @@ function createNewTrip() {
       displayData()
       console.log(allFetchedData[1])
     });
-    
+  estimatedCost.innerHTML = '';
 }
