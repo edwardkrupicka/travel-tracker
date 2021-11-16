@@ -10,59 +10,72 @@
     <title>Travel Tracker</title>
   </head>
   <body>
-    <article class="hidden error-modal" id="errorModal">
-      <p class="error-message" id="errorMessage"></p>
-      <button id="errorButton">x</button>
-    </article>
-    <section class="header-wrapper">
-      <h1 class="travel-tracker-title">Travel Tracker</h1>
+    <section class="login-page">
+      <form class="input-container">
+        <label for'username-input' class='login-label'>Username:
+          <input type='text' placeholder="username" class='username-input' id='usernameInput'>
+        </label>
+        <label for'password-input' class='login-label'>Password:
+          <input type='password' placeholder="password" class='password-input' id='passwordInput'>
+        </label>
+        <input type='button' value='Login' placeholder="Login" class="login-btn" id="loginBtn"> 
+      </form>
     </section>
-    <main class="bottom-section">
-      <aside>
-        <div class="greeting-container">
-          <h1 id="travelerGreeting" class="traveler-greeting"></h1>
-        </div>
-        <form class="request-container">
-          <h1 class="request-header">Schedule a new trip</h1>
-          <div class="request-input-container">
-            <label for="destination-selector">Destination</label>
-            <select name="destinations" class="destination-selector" id="destinationSelector" required>
-              <option value=""></option>
-            </select>
-            <label>Enter Date</label>
-            <input type="date" id="dateInput" class="date-input" required>
-            <label>Duration of stay</label>
-            <input type="number" class="duration-input" id="durationInput" min="1" required>
-            <label>Enter amount of travelers</label>
-            <input type="number" class="traveler-amount-input" id="travelerAmountInput" min=1 required>
-            <input type="button" value="Estimate" class="estimate-btn" id="estimateBtn">
-            <p class="request-error hidden" id="requestError"></p>
-            <input type="button" value="Submit" class="submit-request-btn" id="submitRequestBtn">
+    <section class="dashboard hidden">
+      <article class="hidden error-modal" id="errorModal">
+        <p class="error-message" id="errorMessage"></p>
+        <button id="errorButton">x</button>
+      </article>
+      <section class="header-wrapper">
+        <h1 class="travel-tracker-title">Travel Tracker</h1>
+      </section>
+      <main class="bottom-section">
+        <aside>
+          <div class="greeting-container">
+            <h1 id="travelerGreeting" class="traveler-greeting"></h1>
           </div>
-        </form>
-        <div class="estimated-cost-container">
-          <h1 class="estimated-cost-header">Estimated Cost</h1>
-          <h1 class="estimated-cost" id="estimatedCost"></h1>
-        </div>
-        <div class="total-spent-container">
-          <h1>Total Spent This Year</h1>
-          <h1 id="totalSpent"></h1>
-        </div>
-      </aside>
-      <section class ="trips-section">
-        <article id="gridContainerApproved" class="grid-container">
-        </article>
-        <article id="gridContainerPast" class="grid-container hidden">
-        </article>
-        <article id="gridContainerPending" class="grid-container hidden">
-        </article>
-        <div class="button-container">
-          <button class="past-btn">Past Trips</button>
-          <button class="approved-btn">Approved Trips</button>
-          <button class="pending-btn">Pending Trips</button>
-        </div>
-      </section> 
-    </main> 
+          <form class="request-container">
+            <h1 class="request-header">Schedule a new trip</h1>
+            <div class="request-input-container">
+              <label for="destination-selector">Destination</label>
+              <select name="destinations" class="destination-selector" id="destinationSelector" required>
+                <option value=""></option>
+              </select>
+              <label>Enter Date</label>
+              <input type="date" id="dateInput" class="date-input" required>
+              <label>Duration of stay</label>
+              <input type="number" class="duration-input" id="durationInput" min="1" required>
+              <label>Enter amount of travelers</label>
+              <input type="number" class="traveler-amount-input" id="travelerAmountInput" min=1 required>
+              <input type="button" value="Estimate" class="estimate-btn" id="estimateBtn">
+              <p class="request-error hidden" id="requestError"></p>
+              <input type="button" value="Submit" class="submit-request-btn" id="submitRequestBtn">
+            </div>
+          </form>
+          <div class="estimated-cost-container">
+            <h1 class="estimated-cost-header">Estimated Cost</h1>
+            <h1 class="estimated-cost" id="estimatedCost"></h1>
+          </div>
+          <div class="total-spent-container">
+            <h1>Total Spent This Year</h1>
+            <h1 id="totalSpent"></h1>
+          </div>
+        </aside>
+        <section class ="trips-section">
+          <article id="gridContainerApproved" class="grid-container">
+          </article>
+          <article id="gridContainerPast" class="grid-container hidden">
+          </article>
+          <article id="gridContainerPending" class="grid-container hidden">
+          </article>
+          <div class="button-container">
+            <button class="past-btn">Past Trips</button>
+            <button class="approved-btn">Approved Trips</button>
+            <button class="pending-btn">Pending Trips</button>
+          </div>
+        </section> 
+      </main> 
+    </section>
     <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
 

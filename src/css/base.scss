@@ -13,6 +13,33 @@ body {
   font-family: $fontRoboto;
 }
 
+.login-page {
+  @include flex(space-evenly, center, column);
+  height: 100%;
+  width:100%;
+  background-color: $bluey-black;
+  color: $off-white;
+  font-weight: 900;
+  border: 1px solid white;
+}
+
+.input-container {
+  @include flex(space-evenly, center, column);
+  height: 20vh;
+  width: 10vw;
+  margin: auto;
+}
+
+.login-btn {
+  width: 100%;
+}
+
+.username-input,
+.password-input {
+  width: 100%;
+  height: 25px;
+}
+
 .header-wrapper {
   @include flex(space-between, start, row);
   height: 30%;
@@ -40,7 +67,6 @@ main {
   height: 75%;
   width: 100vw;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-attachment: fixed;
   background: $bluey-black;
 }
