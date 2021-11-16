@@ -13,6 +13,12 @@ body {
   font-family: $fontRoboto;
 }
 
+.dashboard {
+  @include flex(center, center, column);
+  height: 100%;
+  width: 100%;
+}
+
 .login-page {
   @include flex(space-evenly, center, column);
   height: 100%;
@@ -20,18 +26,17 @@ body {
   background-color: $bluey-black;
   color: $off-white;
   font-weight: 900;
-  border: 1px solid white;
 }
 
 .input-container {
   @include flex(space-evenly, center, column);
   height: 20vh;
   width: 10vw;
-  margin: auto;
 }
 
 .login-btn {
   width: 100%;
+  margin-top: 2vh;
 }
 
 .username-input,
