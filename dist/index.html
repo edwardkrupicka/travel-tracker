@@ -16,8 +16,6 @@
     </article>
     <section class="header-wrapper">
       <h1 class="travel-tracker-title">Travel Tracker</h1>
-      <div class="greet-and-button">
-      </div>
     </section>
     <main class="bottom-section">
       <aside>
@@ -28,25 +26,24 @@
           <h1 class="request-header">Schedule a new trip</h1>
           <div class="request-input-container">
             <label for="destination-selector">Destination</label>
-            <select name="destinations" class="destination-selector" id="destination-selector">
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
+            <select name="destinations" class="destination-selector" id="destinationSelector" required>
               <option value=""></option>
             </select>
-            <label for="date-input">Enter Date</label>
-            <input type="date" class="date-input">
-            <label for="">Enter amount of travelers</label>
-            <input type="number" class="traveler-amount" id="quantity" name="quantity" min="1">
-            <input type="submit" value="Submit" class="submit-btn">
+            <label>Enter Date</label>
+            <input type="date" id="dateInput" class="date-input" required>
+            <label>Duration of stay</label>
+            <input type="number" class="duration-input" id="durationInput" min="1" required>
+            <label>Enter amount of travelers</label>
+            <input type="number" class="traveler-amount-input" id="travelerAmountInput" min=1 required>
+            <input type="button" value="Estimate" class="estimate-btn" id="estimateBtn">
+            <p class="request-error hidden" id="requestError"></p>
+            <input type="button" value="Submit" class="submit-request-btn" id="submitRequestBtn">
           </div>
         </form>
+        <div class="estimated-cost-container">
+          <h1 class="estimated-cost-header">Estimated Cost</h1>
+          <h1 class="estimated-cost" id="estimatedCost"></h1>
+        </div>
         <div class="total-spent-container">
           <h1>Total Spent This Year</h1>
           <h1 id="totalSpent"></h1>
