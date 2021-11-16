@@ -10,7 +10,7 @@
     <title>Travel Tracker</title>
   </head>
   <body>
-    <section class="login-page">
+    <section class="login-page" id="loginPage">
       <form class="input-container">
         <label for'username-input' class='login-label'>Username:
           <input type='text' placeholder="username" class='username-input' id='usernameInput'>
@@ -21,7 +21,7 @@
         <input type='button' value='Login' placeholder="Login" class="login-btn" id="loginBtn"> 
       </form>
     </section>
-    <section class="dashboard hidden">
+    <section class="dashboard hidden" id='dashboard'>
       <article class="hidden error-modal" id="errorModal">
         <p class="error-message" id="errorMessage"></p>
         <button id="errorButton">x</button>

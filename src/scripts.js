@@ -32,37 +32,58 @@ const requestError = document.querySelector('#requestError');
 const estimatedCost = document.querySelector('#estimatedCost');
 const usernameInput = document.querySelector('#usernameInput');
 const passwordInput = document.querySelector('#passwordInput');
+const loginPage = document.querySelector('#loginPage')
 const loginBtn = document.querySelector('#loginBtn');
+const dashBoard = document.querySelector('#dashboard')
 
 
 // console.log(apiMethods.getAllData());
 
 
 // Event Listeners
-window.addEventListener('load', displayData);
+window.addEventListener('load', fetchData);
 submitRequestBtn.addEventListener('click', checkForInput);
 estimateBtn.addEventListener('click', createEstimate);
+loginBtn.addEventListener('click', validateLogin);
+passwordInput.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    validateLogin();
+  }
+})
 
 
-
-// Functions
 
 function validateLogin() {
-  if(usernameInput.value === )
+  let splitUsername = usernameInput.value.split('');
+  let userNameID = parseInt(splitUsername.slice(8).join(''));
+  let userNameTraveler = splitUsername.slice(0, 8).join('')
+  if(userNameTraveler === 'traveler' && validateTraveler(userNameID) && passwordInput.value === 'traveler') {
+    initializeData(userNameID);
+  } else {
+    console.log('number out of range')
+  }
 }
 
-function displayData() {
+function validateTraveler(userNameID) {
+  let foundUser;
+  foundUser = allFetchedData[0].find(traveler => traveler.id === userNameID);
+  return foundUser;
+}
+
+function fetchData() {
   apiMethods.getAllData().then(data => {
-    initializeData(data, 0);
     updateDestinationDropDown(data[2]);
+    allFetchedData = data;
   });
 }
 
-function initializeData(data) {
-  traveler = new Traveler(data[0][0], data[1], data[2]);
-  allFetchedData = data;
+
+function initializeData(userNameID) {
+  traveler = new Traveler(validateTraveler(userNameID), allFetchedData[1], allFetchedData[2]);
   updateDom(traveler);
   loadCards(traveler);
+  loginPage.classList.add('hidden');
+  dashBoard.classList.remove('hidden')
 };
 
 
