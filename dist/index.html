@@ -10,7 +10,7 @@
     <title>Travel Tracker</title>
   </head>
   <body>
-    <section class="login-page" id="loginPage">
+    <section class="login-page hidden" id="loginPage">
       <form class="input-container">
         <label for'username-input' class='login-label'>Username:
           <input type='text' placeholder="username" class='username-input' id='usernameInput'>
@@ -18,10 +18,10 @@
         <label for'password-input' class='login-label'>Password:
           <input type='password' placeholder="password" class='password-input' id='passwordInput'>
         </label>
-        <input type='button' value='Login' placeholder="Login" class="login-btn" id="loginBtn"> 
+        <input type='button' value='Login' placeholder="Login" class="login-btn button" id="loginBtn"> 
       </form>
     </section>
-    <section class="dashboard hidden" id='dashboard'>
+    <section class="dashboard" id="dashboard">
       <article class="hidden error-modal" id="errorModal">
         <p class="error-message" id="errorMessage"></p>
         <button id="errorButton">x</button>
@@ -41,15 +41,15 @@
               <select name="destinations" class="destination-selector" id="destinationSelector" required>
                 <option value=""></option>
               </select>
-              <label>Enter Date</label>
+              <label for="dateInput">Enter Date</label>
               <input type="date" id="dateInput" class="date-input" required>
-              <label>Duration of stay</label>
+              <label for="durationInput">Duration of stay</label>
               <input type="number" class="duration-input" id="durationInput" min="1" required>
-              <label>Enter amount of travelers</label>
+              <label for="travelerAmountInput">Enter amount of travelers</label>
               <input type="number" class="traveler-amount-input" id="travelerAmountInput" min=1 required>
-              <input type="button" value="Estimate" class="estimate-btn" id="estimateBtn">
               <p class="request-error hidden" id="requestError"></p>
-              <input type="button" value="Submit" class="submit-request-btn" id="submitRequestBtn">
+              <input type="button" value="Estimate" class="estimate-btn button" id="estimateBtn">
+              <input type="button" value="Submit" class="submit-request-btn button" id="submitRequestBtn">
             </div>
           </form>
           <div class="estimated-cost-container">
@@ -58,21 +58,21 @@
           </div>
           <div class="total-spent-container">
             <h1>Total Spent This Year</h1>
-            <h1 id="totalSpent"></h1>
+            <h1 id="totalSpent" class="totalSpent"></h1>
           </div>
         </aside>
         <section class ="trips-section">
-          <article id="gridContainerApproved" class="grid-container">
+          <h1 class="trip-header" id="tripHeader">Approved Trips</h1>
+          <article id="approvedGrid" class="grid-container approved">
           </article>
-          <article id="gridContainerPast" class="grid-container hidden">
+          <article id="pastGrid" class="grid-container past hidden">
           </article>
-          <article id="gridContainerPending" class="grid-container hidden">
+          <article id="pendingGrid" class="grid-container pending hidden">
           </article>
           <div class="button-container">
-            <button class="past-btn">Past Trips</button>
-            <button class="approved-btn">Approved Trips</button>
-            <button class="pending-btn">Pending Trips</button>
-          </div>
+            <button class="past-btn button" id="pastBtn">Past Trips</button>
+            <button class="approved-btn button" id="approvedBtn">Approved Trips</button>
+            <button class="pending-btn button" id="pendingBtn">Pending Trips</button>
         </section> 
       </main> 
     </section>

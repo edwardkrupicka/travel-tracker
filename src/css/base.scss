@@ -10,7 +10,7 @@ body, html {
 body {
   @include flex(center, center, column);
   overflow: hidden;
-  font-family: $fontRoboto;
+  font-family: $fontDMSerif;
 }
 
 .dashboard {
@@ -25,7 +25,6 @@ body {
   width:100%;
   background-color: $bluey-black;
   color: $off-white;
-  font-weight: 900;
 }
 
 .input-container {
@@ -87,25 +86,26 @@ aside {
   @include flex(start, start);
   height: 10%;
   width: 100%;
+  font-weight: 900;
 }
 
 .traveler-greeting {
   margin-left: 5%;
-  font-size: 2vw;
+  font-size: 1.7vw;
   color: rgb(165, 164, 163);
   font-family: $fontDMSerif;
+  margin-top: 1vh;
 }
 
 .request-container {
-  @include flex(start, center, column);
+  @include flex(center, center, column);
   margin-top: 1%;
-  height: 47vh;
+  height: 45vh;
   width: 25vw;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
   color: $off-white;
   border-radius: 25px;
   background: rgb(28, 27, 41);
-  font-weight: 600;
 }
 
 .request-header{
@@ -146,29 +146,25 @@ label {
   text-align: center;
 }
 
-.estimated-cost-container {
-  @include flex(space-evenly, center, column);
-  height: 10%;
-  width: 100%;
-  border: 2px solid;
-}
-
+.estimated-cost-container,
 .total-spent-container {
-  @include flex(center, center, column);
+  @include flex(space-evenly, center, column);
   width: 100%;
   height: 10%;
-  font-size: 1.5vw;
+  font-size: 1.9vw;
   text-align: start;
   font-family: $fontDMSerif;
   color: $off-white;
-  border: 1px solid white;
 }
 
-.trips-section {
-  height: 100%;
-  width: 70%;
-  @include flex(space-between, center, column);
-  overflow: hidden;
+.estimated-cost,
+.totalSpent {
+  // border: 4px solid $off-white;
+  height: 4vh;
+  width: 12vw;
+  text-align: center;
+  font-size: 2.5vw;
+  border-bottom: 3px solid $off-white;
 }
 
 .button-container {
@@ -180,17 +176,23 @@ label {
 button {
   height: 25px;
   width: 25%;
-  color: rgb(184, 184, 184);
+  color: rgb(215, 215, 215);
   border-style: none;
   border-radius: 9px;
   background: rgb(28, 27, 41);
   border: 2px solid rgba(94, 94, 94, 0.406);
   font-family: $fontRoboto;
-  font-size: 0.8vw;
+  font-size: 60%;
   margin: 0.5vw;
   margin-bottom: 2vh;
   margin-top: 0px;
-  opacity: 65%;
+}
+
+.trips-section {
+  height: 100%;
+  width: 100%;
+  @include flex(space-between, center, column);
+  overflow: hidden;
 }
 
 .grid-container {
@@ -202,16 +204,14 @@ button {
   height: 100%;
   width: 100%;
   overflow-y: scroll;
-  // border: 2px solid $off-white;
 }
 
 .item {
   @include flex(center, center, column);
   grid-column: auto;
   width: 29vw;
-  min-width: 300px;
-  height: 58vh;
-  max-height: 450px;
+  min-width: 200px;
+  height: 55vh;
   margin-top: 4%;
   margin-bottom: 2%;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
@@ -222,7 +222,7 @@ button {
 }
 
 img {
-  height: 50vh;
+  height: 30vh;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -230,24 +230,24 @@ img {
 }
 
 .destination-information-container {
-  @include flex(center, start, column);
+  @include flex(center, center, column);
   height: 50%;
 }
 
 .destination-header {
-  height: 20vh;
+  height: 20%;
   font-size: 1.5vw;
   margin-top: 1vh;
-  font-weight: bolder;
+  text-decoration: underline;
 }
 
 .paragraph-container {
   height: 80%;
+  font-family: $fontDMSerif;
 }
 
 p {
-  font-size: 1vw;
-  font-weight: 650;
+  font-size: 1.5vw;
   margin-bottom: 2vh;
   line-height: 2vw;
 }
@@ -258,14 +258,74 @@ p {
   width:100vw;
   height: 100vh;
   z-index: 2;
-  @include flex(center, center);
+  @include flex(center, center, column);
 }
 
 .error-message {
   font-size: 36px;
+  color: $off-white;
   margin: 40px;
 }
 
 .hidden {
   display: none;
+}
+
+.trip-header {
+  font-family: $fontDMSerif;
+  color: $off-white;
+  font-size: 2vw;
+  text-align: center;
+  margin-top: 1vh;
+  margin-bottom: 0.5vh;
+  font-weight: 900;
+}
+
+.button {
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: $off-white;
+  color: $bluey-black;
+}
+
+@media screen and (max-width: 600px) {
+
+  body {
+    height: 100%;
+    overflow-y: scroll;
+    position: relative;
+    background-color: $bluey-black;
+  }
+  .dashboard {
+    display: grid;
+  }
+  .bottom-section {
+    flex-direction: column;
+  }
+  aside {
+    height: 100%;
+  }
+  .request-container {
+    width: 90vw;
+    height: 70vh;
+  }
+  .trips-section {
+    overflow: visible;
+    background: $bluey-black;
+  }
+  .travel-tracker-title{
+    height: 0%;
+  }
+  .header-wrapper {
+    height: 100%;
+  }
+  .destination-header {
+    font-size: 100%;
+  }
+  p {
+    font-size: 100%;
+    line-height: 100%;
+  }
 }

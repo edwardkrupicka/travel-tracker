@@ -21,7 +21,9 @@ let traveler;
 
 const travelerGreeting = document.querySelector('#travelerGreeting');
 const totalSpent = document.querySelector('#totalSpent');
-const gridContainerApproved = document.querySelector('#gridContainerApproved');
+const approvedGrid = document.querySelector('#approvedGrid');
+const pendingGrid = document.querySelector('#pendingGrid');
+const pastGrid = document.querySelector('#pastGrid');
 const destinationSelector = document.querySelector('#destinationSelector');
 const dateInput = document.querySelector('#dateInput');
 const durationInput = document.querySelector('#durationInput');
@@ -35,6 +37,11 @@ const passwordInput = document.querySelector('#passwordInput');
 const loginPage = document.querySelector('#loginPage')
 const loginBtn = document.querySelector('#loginBtn');
 const dashBoard = document.querySelector('#dashboard')
+const pastBtn = document.querySelector('#pastBtn');
+const pendingBtn = document.querySelector('#pendingBtn');
+const approvedBtn = document.querySelector('#approvedBtn');
+const tripHeader = document.querySelector('#tripHeader');
+
 
 
 // console.log(apiMethods.getAllData());
@@ -45,13 +52,36 @@ window.addEventListener('load', fetchData);
 submitRequestBtn.addEventListener('click', checkForInput);
 estimateBtn.addEventListener('click', createEstimate);
 loginBtn.addEventListener('click', validateLogin);
+pastBtn.addEventListener('click', showPastForm)
+pendingBtn.addEventListener('click', showPendingForm)
+approvedBtn.addEventListener('click', showApprovedForm)
+// approvedBtn.addEventListener('click',)
+// pendingBtn.addEventListener('click',)
 passwordInput.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
     validateLogin();
   }
-})
+});
 
+// Functions
 
+function fetchData() {
+  apiMethods.getAllData().then(data => {
+    updateDestinationDropDown(data[2]);
+    allFetchedData = data;
+    createTraveler() //Get rid of this line later
+  });
+}
+
+function createTraveler() { 
+  traveler = new Traveler(allFetchedData[0][49], allFetchedData[1], allFetchedData[2]);
+  updateTotalSpent(traveler);
+  loadCards(traveler);
+  loginPage.classList.add('hidden');
+  dashBoard.classList.remove('hidden')
+  travelerGreeting.innerHTML = `Welcome back ${traveler.name.split(' ')[0]}, are you ready for your next adventure?`;
+
+};
 
 function validateLogin() {
   let splitUsername = usernameInput.value.split('');
@@ -70,28 +100,20 @@ function validateTraveler(userNameID) {
   return foundUser;
 }
 
-function fetchData() {
-  apiMethods.getAllData().then(data => {
-    updateDestinationDropDown(data[2]);
-    allFetchedData = data;
-  });
-}
-
 
 function initializeData(userNameID) {
   traveler = new Traveler(validateTraveler(userNameID), allFetchedData[1], allFetchedData[2]);
-  updateDom(traveler);
+  updateTotalSpent(traveler);
   loadCards(traveler);
   loginPage.classList.add('hidden');
-  dashBoard.classList.remove('hidden')
+  dashBoard.classList.remove('hidden');
+  travelerGreeting.innerHTML = `Welcome back ${traveler.name.split(' ')[0]}, are you ready for your next adventure?`;
 };
 
 
 
-function updateDom(traveler) {
-  travelerGreeting.innerText = `Welcome back ${traveler.name.split(' ')[0]}, are you ready for your next adventure?`;
-  totalSpent.innerText = `$${traveler.calculateSpentThisYear()}`;
-  
+function updateTotalSpent(traveler) {
+  totalSpent.innerText = `$${traveler.calculateSpentThisYear()}`;  
 };
 
 function updateDestinationDropDown(data) {
@@ -101,26 +123,72 @@ function updateDestinationDropDown(data) {
   })
 };
 
+// function compareDates(date) {
+//   const today = date.getDate();
+//   const currentMonth = date.getMonth() +1;
+//   const currentYear = date.getFullYear();
+// }
+
 function loadCards(traveler) {
-  gridContainerApproved.innerHTML = "";
+  pendingGrid.innerHTML = "";
+  approvedGrid.innerHTML = "";
+  pastGrid.innerHTML = "";
   traveler.tripData.forEach(trip => {
-    gridContainerApproved.innerHTML += 
-    `<article class="item item-1">
-      <img src=${trip.destination.image} alt="${trip.destination.alt}">
-      <div class="destination-information-container">
-        <h1 class="destination-header">${trip.destination.destination}</h1>
-      <div class="paragraph-container">
-        <p>
-          Flight Cost: ${trip.destination.estimatedFlightCostPerPerson} / per person<br>
-          Lodging Cost: ${trip.destination.estimatedLodgingCostPerDay} / day<br>
-          Start Date: ${trip.date}<br>
-          Trip Length: ${trip.duration} days<br>
-          Travelers: ${trip.travelers}<br>
-          Status: ${trip.status}<br>
-        </p>
-      </div>
-      </div>
-    </article>`
+    if(trip.status === 'approved' && new Date(trip.date) > new Date()) {
+      approvedGrid.innerHTML += 
+      `<article class="item item-1">
+        <img src=${trip.destination.image} alt="${trip.destination.alt}">
+        <div class="destination-information-container">
+          <h1 class="destination-header">${trip.destination.destination}</h1>
+        <div class="paragraph-container">
+          <p>
+            Flight Cost: ${trip.destination.estimatedFlightCostPerPerson} / per person<br>
+            Lodging Cost: ${trip.destination.estimatedLodgingCostPerDay} / day<br>
+            Start Date: ${trip.date}<br>
+            Trip Length: ${trip.duration} days<br>
+            Travelers: ${trip.travelers}<br>
+            Status: ${trip.status}<br>
+          </p>
+        </div>
+        </div>
+      </article>`
+    } else if(trip.status === 'pending'){
+      pendingGrid.innerHTML += 
+      `<article class="item item-1">
+        <img src=${trip.destination.image} alt="${trip.destination.alt}">
+        <div class="destination-information-container">
+          <h1 class="destination-header">${trip.destination.destination}</h1>
+        <div class="paragraph-container">
+          <p>
+            Flight Cost: ${trip.destination.estimatedFlightCostPerPerson} / per person<br>
+            Lodging Cost: ${trip.destination.estimatedLodgingCostPerDay} / day<br>
+            Start Date: ${trip.date}<br>
+            Trip Length: ${trip.duration} days<br>
+            Travelers: ${trip.travelers}<br>
+            Status: ${trip.status}<br>
+          </p>
+        </div>
+        </div>
+      </article>`
+    } else {
+      pastGrid.innerHTML += 
+      `<article class="item item-1">
+        <img src=${trip.destination.image} alt="${trip.destination.alt}">
+        <div class="destination-information-container">
+          <h1 class="destination-header">${trip.destination.destination}</h1>
+        <div class="paragraph-container">
+          <p>
+            Flight Cost: ${trip.destination.estimatedFlightCostPerPerson} / per person<br>
+            Lodging Cost: ${trip.destination.estimatedLodgingCostPerDay} / day<br>
+            Start Date: ${trip.date}<br>
+            Trip Length: ${trip.duration} days<br>
+            Travelers: ${trip.travelers}<br>
+            Status: ${trip.status}<br>
+          </p>
+        </div>
+        </div>
+      </article>`
+    }
   })
 };
 
@@ -129,7 +197,8 @@ function checkForInput() {
     createNewTrip()
   }
   else {
-    requestError.innerHTML = `Empty Fields`;
+    requestError.classList.remove('hidden')
+    requestError.innerHTML = `Please fill in all fields`;
   }
 }
 
@@ -141,7 +210,7 @@ function createEstimate() {
     const flightCost = estimateDestination.estimatedFlightCostPerPerson * travelerAmountInput.value;
     const totalBeforeFee = lodgingCost + flightCost;
     const agentFee = totalBeforeFee * 0.10;
-    estimatedCost.innerHTML = totalBeforeFee + agentFee;
+    estimatedCost.innerHTML = `$${totalBeforeFee + agentFee}`;
   }
 }
 
@@ -160,8 +229,50 @@ function createNewTrip() {
   console.log(newTrip)
   apiMethods.postData(newTrip)
     .then(() => {
-      displayData()
-      console.log(allFetchedData[1])
+      reFetchData()
     });
   estimatedCost.innerHTML = '';
 }
+
+function reFetchData() {
+  apiMethods.getAllData().then(data => {
+    updateDestinationDropDown(data[2]);
+    allFetchedData = data;
+    initializeData(traveler.id)
+  });
+};
+
+function showPastForm() {
+  if(pastGrid.classList.contains('hidden')) {
+    pastGrid.classList.remove('hidden')
+    pendingGrid.classList.add('hidden')
+    approvedGrid.classList.add('hidden')
+    tripHeader.innerHTML = 'Past Trips'
+  }
+  
+}
+
+function showPendingForm() {
+  if(pendingGrid.classList.contains('hidden')) {
+    pendingGrid.classList.remove('hidden')
+    approvedGrid.classList.add('hidden')
+    pastGrid.classList.add('hidden')
+    tripHeader.innerHTML = 'Pending Trips'
+  }
+}
+
+function showApprovedForm() {
+  if(approvedGrid.classList.contains('hidden')) {
+    approvedGrid.classList.remove('hidden')
+    pendingGrid.classList.add('hidden')
+    pastGrid.classList.add('hidden')
+    tripHeader.innerHTML = 'Approved Trips'
+  }  
+}
+
+
+
+
+
+
+
