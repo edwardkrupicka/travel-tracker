@@ -1,6 +1,12 @@
-import { expect } from 'chai';
+import {
+	expect
+} from 'chai';
 import Traveler from '../src/Traveler'
-import { allDestinationData, allTravelerData, allTripData } from '../test/test-data';
+import {
+	allDestinationData,
+	allTravelerData,
+	allTripData
+} from '../test/test-data';
 
 
 describe('Traveler', () => {
@@ -8,13 +14,13 @@ describe('Traveler', () => {
 	let traveler5;
 
 	beforeEach(() => {
-		traveler = new Traveler(allTravelerData[0], allTripData, allDestinationData);
-		traveler5 = new Traveler(allTravelerData[4], allTripData, allDestinationData);
-	}),
+			traveler = new Traveler(allTravelerData[0], allTripData, allDestinationData);
+			traveler5 = new Traveler(allTravelerData[4], allTripData, allDestinationData);
+		}),
 
-	it('should be a function', () => {
-		expect(Traveler).to.be.a('function');
-	});
+		it('should be a function', () => {
+			expect(Traveler).to.be.a('function');
+		});
 
 	it('should be an instance of Traveler', () => {
 		expect(traveler).to.be.an.instanceOf(Traveler);
@@ -27,8 +33,7 @@ describe('Traveler', () => {
 	});
 
 	it('should store a travelers trip data', () => {
-		expect(traveler5.tripData).to.deep.equal([
-			{
+		expect(traveler5.tripData).to.deep.equal([{
 				id: 91,
 				userID: 5,
 				destinationID: 5,

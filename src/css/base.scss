@@ -3,10 +3,12 @@
 @import 'reset';
 @import 'mixins';
 
-body, html {
+body,
+html {
   height: 100vh;
   width: 100vw;
 }
+
 body {
   @include flex(center, center, column);
   overflow: hidden;
@@ -20,11 +22,17 @@ body {
 }
 
 .login-page {
-  @include flex(space-evenly, center, column);
+  @include flex(center, center, column);
   height: 100%;
-  width:100%;
+  width: 100%;
   background-color: $bluey-black;
   color: $off-white;
+  margin: auto;
+  font-weight: 900;
+}
+
+.login-header {
+  font-size: 2vw;
 }
 
 .input-container {
@@ -36,12 +44,25 @@ body {
 .login-btn {
   width: 100%;
   margin-top: 2vh;
+  color: rgb(0, 0, 0);
+  border-style: none;
+  border-radius: 3px;
+  background: rgb(175, 175, 176);
+  font-family: $fontDMSerif;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
 }
 
 .username-input,
 .password-input {
   width: 100%;
   height: 25px;
+  background-color: $off-white;
+  color: $bluey-black;
+}
+
+::placeholder {
+  color: $bluey-black;
+  opacity: 0.6;
 }
 
 .header-wrapper {
@@ -108,7 +129,7 @@ aside {
   background: rgb(28, 27, 41);
 }
 
-.request-header{
+.request-header {
   @include flex(center, center, column);
   // border: 2px solid white;
   font-size: 2vw;
@@ -125,6 +146,7 @@ label {
   height: 2vh;
   width: 20vw;
 }
+
 .estimate-btn,
 .traveler-amount-input,
 .duration-input,
@@ -142,7 +164,7 @@ label {
 }
 
 .request-error {
-  font-size: 1.2vw;
+  font-size: 1.5vw;
   text-align: center;
 }
 
@@ -255,14 +277,14 @@ p {
 .error-modal {
   position: fixed;
   background-color: rgba(0, 0, 0, .7);
-  width:100vw;
+  width: 100vw;
   height: 100vh;
   z-index: 2;
   @include flex(center, center, column);
 }
 
 .error-message {
-  font-size: 36px;
+  font-size: 30px;
   color: $off-white;
   margin: 40px;
 }
@@ -290,6 +312,12 @@ p {
   color: $bluey-black;
 }
 
+.login-btn:hover {
+  background-color: $light-bluey-black;
+  color: $off-white;
+  border: 2px solid $off-white;
+}
+
 @media screen and (max-width: 600px) {
 
   body {
@@ -298,32 +326,41 @@ p {
     position: relative;
     background-color: $bluey-black;
   }
+
   .dashboard {
     display: grid;
   }
+
   .bottom-section {
     flex-direction: column;
   }
+
   aside {
     height: 100%;
   }
+
   .request-container {
     width: 90vw;
     height: 70vh;
   }
+
   .trips-section {
     overflow: visible;
     background: $bluey-black;
   }
-  .travel-tracker-title{
+
+  .travel-tracker-title {
     height: 0%;
   }
+
   .header-wrapper {
     height: 100%;
   }
+
   .destination-header {
     font-size: 100%;
   }
+
   p {
     font-size: 100%;
     line-height: 100%;

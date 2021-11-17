@@ -1,22 +1,27 @@
-import { expect } from 'chai';
+import {
+  expect
+} from 'chai';
 import Trip from '../src/Trip'
-import { allTripData, allDestinationData } from '../test/test-data';
+import {
+  allTripData,
+  allDestinationData
+} from '../test/test-data';
 
 
 describe('Trip', () => {
-	let trip;
-  
-	beforeEach(() => {
-    trip = new Trip(allTripData[0], allDestinationData);
-	}),
+  let trip;
 
-	it('should be a function', () => {
-		expect(Trip).to.be.a('function');
-	});
+  beforeEach(() => {
+      trip = new Trip(allTripData[0], allDestinationData);
+    }),
 
-	it('should be an instance of Trip', () => {
-		expect(trip).to.be.an.instanceOf(Trip);
-	});
+    it('should be a function', () => {
+      expect(Trip).to.be.a('function');
+    });
+
+  it('should be an instance of Trip', () => {
+    expect(trip).to.be.an.instanceOf(Trip);
+  });
 
   it('should store trip data', () => {
     expect(trip.id).to.equal(117);

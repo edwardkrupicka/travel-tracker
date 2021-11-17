@@ -1,4 +1,7 @@
-import {connectionErr, checkStatus } from "./error-handling.js";
+import {
+  connectionErr,
+  checkStatus
+} from "./error-handling.js";
 
 const apiMethods = {
 
@@ -17,36 +20,33 @@ const apiMethods = {
         }
       });
     return retrievedData;
-},
+  },
 
-getAllData() {
-  const gotTravelerData = this.getData('http://localhost:3001/api/v1/travelers/', 'travelers');
-  const gotAllTripData = this.getData('http://localhost:3001/api/v1/trips', 'trips');
-  const gotAllDestinationData = this.getData('http://localhost:3001/api/v1/destinations', 'destinations');
-  const allPromise = Promise.all([gotTravelerData, gotAllTripData, gotAllDestinationData])
-  return allPromise;
-},
+  getAllData() {
+    const gotTravelerData = this.getData('http://localhost:3001/api/v1/travelers/', 'travelers');
+    const gotAllTripData = this.getData('http://localhost:3001/api/v1/trips', 'trips');
+    const gotAllDestinationData = this.getData('http://localhost:3001/api/v1/destinations', 'destinations');
+    const allPromise = Promise.all([gotTravelerData, gotAllTripData, gotAllDestinationData])
+    return allPromise;
+  },
 
-postData(newData) {
-  return fetch('http://localhost:3001/api/v1/trips', {
-    method: "POST",
-    body: JSON.stringify(newData),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-  .then(response => {
-    checkStatus(response);
-    return response.json();
-  })
-  .catch(err => console.log(err));
+  postData(newData) {
+    return fetch('http://localhost:3001/api/v1/trips', {
+        method: "POST",
+        body: JSON.stringify(newData),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        checkStatus(response);
+        return response.json();
+      })
+      .catch(err => console.log(err));
   }
 
 }
 
-export { apiMethods }
-
-
-
-
-
+export {
+  apiMethods
+}

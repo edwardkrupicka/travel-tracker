@@ -1,5 +1,4 @@
-const allTravelerData = [
-  {
+const allTravelerData = [{
     id: 1,
     name: "Ham Leadbeater",
     travelerType: "relaxer"
@@ -26,8 +25,7 @@ const allTravelerData = [
   },
 ];
 
-const allTripData = [
-  {
+const allTripData = [{
     id: 117,
     userID: 1,
     destinationID: 28,
@@ -35,7 +33,7 @@ const allTripData = [
     date: "2021/01/09",
     duration: 15,
     status: "approved",
-    suggestedActivities: [ ]
+    suggestedActivities: []
   },
   {
     id: 89,
@@ -45,7 +43,7 @@ const allTripData = [
     date: "2019/09/27",
     duration: 13,
     status: "approved",
-    suggestedActivities: [ ]
+    suggestedActivities: []
   },
   {
     id: 3,
@@ -55,7 +53,7 @@ const allTripData = [
     date: "2022/05/22",
     duration: 17,
     status: "approved",
-    suggestedActivities: [ ]
+    suggestedActivities: []
   },
   {
     id: 186,
@@ -65,7 +63,7 @@ const allTripData = [
     date: "2020/02/08",
     duration: 6,
     status: "approved",
-    suggestedActivities: [ ]
+    suggestedActivities: []
   },
   {
     id: 91,
@@ -75,7 +73,7 @@ const allTripData = [
     date: "2021/04/29",
     duration: 16,
     status: "approved",
-    suggestedActivities: [ ]
+    suggestedActivities: []
   },
   {
     id: 103,
@@ -85,7 +83,7 @@ const allTripData = [
     date: "2020/10/19",
     duration: 20,
     status: "approved",
-    suggestedActivities: [ ]
+    suggestedActivities: []
   },
   {
     id: 163,
@@ -95,7 +93,7 @@ const allTripData = [
     date: "2020/04/28",
     duration: 10,
     status: "approved",
-    suggestedActivities: [ ]
+    suggestedActivities: []
   },
   {
     id: 196,
@@ -105,19 +103,18 @@ const allTripData = [
     date: "2021/09/25",
     duration: 8,
     status: "approved",
-    suggestedActivities: [ ]
+    suggestedActivities: []
   }
 ];
 
-const allDestinationData = [
-  {
+const allDestinationData = [{
     id: 28,
     destination: "San Juan, Puerto Rico",
     estimatedLodgingCostPerDay: 70,
     estimatedFlightCostPerPerson: 900,
     image: "https://images.unsplash.com/photo-1580237541049-2d715a09486e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80",
     alt: "white and brown concrete buildings near sea under white clouds during daytime"
-  }, 
+  },
   {
     id: 10,
     destination: "Toronto, Canada",
@@ -176,4 +173,8 @@ const allDestinationData = [
 ];
 
 
-export { allTravelerData, allTripData, allDestinationData }
+export {
+  allTravelerData,
+  allTripData,
+  allDestinationData
+}
