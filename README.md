@@ -10,7 +10,7 @@ Travel Tracker is an application which allows the user to track trips (past, cur
 
 ![Screen Shot 2021-11-16 at 9 08 12 PM](https://im3.ezgif.com/tmp/ezgif-3-a6022277e14b.gif)
 
-![Screen Shot 2021-11-16 at 9 11 09 PM](https://user-images.githubusercontent.com/87044013/142133280-54fa6bfc-ba9b-4eed-83a5-5d1b9646cb0b.png)
+![Screen Shot 2021-11-16 at 9 11 09 PM](https://im3.ezgif.com/tmp/ezgif-3-dec16f518d82.gif)
 
 ## Setup
 
