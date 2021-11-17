@@ -15,9 +15,12 @@ const connectionErr = (err, customMessage) => {
 const checkStatus = (res, customMessage) => {
   if (!res.ok) {
     throw new Error('customMessage');
-  } 
+  }
 }
 
 errorButton.addEventListener("click", hideErrorModal);
 
-export {connectionErr, checkStatus };
+export {
+  connectionErr,
+  checkStatus
+};

@@ -10,7 +10,7 @@ class Traveler {
 
   getTravelerTripData(allTripData, allDestinationData) {
     return allTripData.reduce((arr, trip) => {
-      if(trip.userID === this.id) {
+      if (trip.userID === this.id) {
         const tripInstance = new Trip(trip, allDestinationData);
         arr.push(tripInstance);
       }
@@ -20,7 +20,7 @@ class Traveler {
 
   calculateSpentThisYear() {
     return this.tripData.reduce((acc, trip) => {
-      if(trip.date.includes('2021')) {
+      if (trip.date.includes('2021')) {
         acc += trip.calculateTripCost();
       }
       return acc;
