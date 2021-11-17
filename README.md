@@ -8,7 +8,7 @@
 ### Description
 Travel Tracker is an application which allows the user to track trips (past, current and upcoming), schedule new trips / see their estimated costs, and track their total spent on trips annually. This application interacts with an API using Webpack and implements best SRP and OOP practices including a robust testing suite and full fetch functionality, both GET and POST. Accessibility has been considered using an audit by Chrome Dev Tools Lighthouse. 
 
-![Screen Shot 2021-11-16 at 9 08 12 PM](https://user-images.githubusercontent.com/87044013/142133008-f2cd9be5-c626-43e3-b89f-352f51b8b007.png)
+![Screen Shot 2021-11-16 at 9 08 12 PM](https://im3.ezgif.com/tmp/ezgif-3-a6022277e14b.gif)
 
 ![Screen Shot 2021-11-16 at 9 11 09 PM](https://user-images.githubusercontent.com/87044013/142133280-54fa6bfc-ba9b-4eed-83a5-5d1b9646cb0b.png)
 
